@@ -1,2 +1,10 @@
+### IDE - IntelliJ IDEA ###
 .idea/
+*.iws
 *.iml
+*.ipr
+out/
+
+
+### Maven ###
+target/
