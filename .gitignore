@@ -7,4 +7,4 @@ out/
 
 
 ### Maven ###
-target/
+**/target/
