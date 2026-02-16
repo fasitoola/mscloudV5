@@ -9,14 +9,15 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 
-@FeignClient("cloud-payment-service")
+//@FeignClient("cloud-payment-service")
+@FeignClient("cloud-gateway")
 public interface PayFeignApi {
 
     @PostMapping(value = "/pay/add")
     public ResultData addPay(@RequestBody PayDTO pay);
 
-    @GetMapping(value = "/pay/get/{id}")
-    public ResultData getById(@PathVariable("id") Integer id);
+//    @GetMapping(value = "/pay/get/{id}")
+//    public ResultData getById(@PathVariable("id") Integer id);
 
     @GetMapping("/pay/get/info")
     public ResultData mylb();
@@ -45,5 +46,22 @@ public interface PayFeignApi {
      */
     @GetMapping(value = "/pay/ratelimit/{id}")
     public String myRatelimit(@PathVariable("id") Integer id);
+
+
+    /**
+     * GateWay进行网关测试案例01
+     * @param id
+     * @return
+     */
+    @GetMapping(value = "/pay/gateway/get/{id}")
+    public ResultData getById(@PathVariable("id") Integer id);
+
+    /**
+     * GateWay进行网关测试案例02
+     * @return
+     */
+    @GetMapping(value = "/pay/gateway/info")
+    public ResultData<String> getGatewayInfo();
+
 
 }

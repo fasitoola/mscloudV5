@@ -10,6 +10,7 @@ import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 @RestController
@@ -72,4 +73,9 @@ public class PayController {
     }
 
     //全部查询getall作为家庭作业
+    @GetMapping("/pay/getAll")
+    public ResultData getAll(){
+        List<Pay> payServiceAll = payService.getAll();
+        return ResultData.success(payServiceAll);
+    }
 }
